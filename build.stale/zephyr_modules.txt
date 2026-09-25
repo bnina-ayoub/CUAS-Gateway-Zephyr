@@ -1,0 +1,3 @@
+"cmsis":"/home/bninaos/NXP_Projects/CAN_Node_Project/modules/hal/cmsis":"${ZEPHYR_CMSIS_CMAKE_DIR}"
+"cmsis_6":"/home/bninaos/NXP_Projects/CAN_Node_Project/modules/hal/cmsis_6":"${ZEPHYR_CMSIS_6_CMAKE_DIR}"
+"hal_nxp":"/home/bninaos/NXP_Projects/CAN_Node_Project/modules/hal/nxp":"${ZEPHYR_HAL_NXP_CMAKE_DIR}"

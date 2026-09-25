@@ -1,0 +1,2 @@
+# Load Zephyr board defconfig descriptions.
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/boards/nxp/frdm_mcxa156/Kconfig.defconfig"

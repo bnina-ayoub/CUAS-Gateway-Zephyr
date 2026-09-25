@@ -1,0 +1,15 @@
+mainmenu "Anti-UAV Tracker Project"
+
+source "Kconfig.zephyr"
+
+config CAN_ROLE_RECEIVER
+    bool "Enable the board to receive CAN messages from the STM32 node"
+    default n
+    help
+      Enable this to enable CAN communication with the STM32 node.
+
+config MOTOR_ENCODER_READ
+    bool "Enable the board to read motor encoder values"
+    default n
+    help
+      Enable this to enable reading motor encoder values of the stepper motors.

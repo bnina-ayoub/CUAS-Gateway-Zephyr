@@ -1,0 +1,21 @@
+menu "cmsis (/home/bninaos/NXP_Projects/CAN_Node_Project/modules/hal/cmsis)"
+osource "$(ZEPHYR_CMSIS_KCONFIG)"
+config ZEPHYR_CMSIS_MODULE
+	bool
+	default y
+endmenu
+menu "cmsis_6 (/home/bninaos/NXP_Projects/CAN_Node_Project/modules/hal/cmsis_6)"
+osource "$(ZEPHYR_CMSIS_6_KCONFIG)"
+config ZEPHYR_CMSIS_6_MODULE
+	bool
+	default y
+endmenu
+menu "hal_nxp (/home/bninaos/NXP_Projects/CAN_Node_Project/modules/hal/nxp)"
+osource "$(ZEPHYR_HAL_NXP_KCONFIG)"
+config ZEPHYR_HAL_NXP_MODULE
+	bool
+	default y
+
+config ZEPHYR_HAL_NXP_MODULE_BLOBS
+	bool
+endmenu

@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Current App",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "gdbTarget": "localhost:3333",
+            "gdbPath": "/path/to/your/sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+            "preLaunchTask": "Start West Debugserver",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "raw"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+# Load Zephyr Arch Kconfig descriptions.
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/rx/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/x86/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/xtensa/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/sparc/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/riscv/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/posix/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/openrisc/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/mips/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/arm64/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/arm/Kconfig"
+osource "/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/arch/arc/Kconfig"

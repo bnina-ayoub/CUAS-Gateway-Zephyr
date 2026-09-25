@@ -1,0 +1,146 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+#include <zephyr/dt-bindings/pwm/pwm.h>
+/ {
+    aliases {
+        led0 = &red_led;
+        led1 = &green_led;
+        pdir = &pan_dir;
+        tdir= &tilt_dir; 
+    };
+
+    leds {
+        compatible = "gpio-leds";
+
+        red_led: led_3 {
+            gpios = <&gpio4 18 GPIO_ACTIVE_LOW>;
+            label = "Red LED";
+        };
+
+        green_led: led_1 {
+            gpios = <&gpio4 19 GPIO_ACTIVE_LOW>;
+            label = "Green LED";
+        };
+    };
+
+    motor_pins {
+		compatible = "gpio-leds";
+		
+        
+        pan_dir: pan_dir {
+            gpios = <&gpio3 16 GPIO_ACTIVE_HIGH>; 
+            label = "Pan DIR Pin";
+        };
+
+        tilt_dir: tilt_dir {
+            gpios = <&gpio3 17 GPIO_ACTIVE_HIGH>; 
+            label = "Tilt DIR Pin";
+        };
+    };
+
+    pwm_motors {
+        compatible = "pwm-leds";
+        
+        pan_step: pan_step {
+            pwms = <&flexpwm1_pwm0 0 PWM_HZ(2300) PWM_POLARITY_NORMAL>;
+        };
+
+        tilt_step: tilt_step {
+            pwms = <&flexpwm1_pwm1 0 PWM_HZ(2300) PWM_POLARITY_NORMAL>;
+        };
+    };
+};
+
+
+&peripheral {
+    inputmux0: inputmux@6000 {
+        compatible = "nxp,inputmux";
+        reg = <0x6000 0x1000>;
+        #inputmux-cells = <2>;
+        status = "okay";
+    };
+
+    qdc0: qdc@cf000 {
+        compatible = "nxp,mcux-qdc";
+        reg = <0xcf000 0x1000>;
+        status = "disabled";
+    };
+};
+
+&pinctrl {
+    qdc0_default: qdc0_default {
+        group0 {
+            pinmux = <TRIG_IN8_PIO4_13>,
+                     <TRIG_IN9_PIO4_21>;
+            drive-strength = "low";
+            slew-rate = "fast";
+            input-enable;
+        };
+    };
+
+    pinmux_flexpwm1_pwm0: pinmux_flexpwm1_pwm0 {
+		group0 {
+			pinmux = <PWM1_A0_PIO3_12>;
+			slew-rate = "fast";
+			drive-strength = "low";
+		};
+	};
+    
+    pinmux_flexpwm1_pwm1: pinmux_flexpwm1_pwm1 {
+		group0 {
+			pinmux = <PWM1_A1_PIO3_14>;
+			slew-rate = "fast";
+			drive-strength = "low";
+		};
+    };
+};
+
+&inputmux0 {
+    status = "okay";
+};
+
+&flexpwm1_pwm0 {
+    status = "okay";
+    pinctrl-0 = <&pinmux_flexpwm1_pwm0>;
+};
+
+&flexpwm1_pwm1 {
+    status = "okay";
+    pinctrl-0 = <&pinmux_flexpwm1_pwm1>;
+    pinctrl-names = "default";
+};
+
+&qdc0 {
+    status = "okay";
+    pinctrl-0 = <&qdc0_default>;
+    pinctrl-names = "default";
+    /* 14 encoder pulses per revolution, decoded in quadrature x4. */
+    counts-per-revolution = <360>;
+    filter-count = <7>;
+    filter-sample-period = <100>;
+    input-channels = <0 0>;
+    inputmux-connections = <0x37000032 0x36c00033>;
+};
+
+&flexcomm0 {
+    status = "okay";
+};
+
+&flexcomm0_lpuart0 {
+    status = "okay";
+	current-speed = <115200>;
+    parity = "none";
+    data-bits = <8>;      
+    stop-bits = "1";
+};
+
+&gpio3 {
+    status = "okay";
+};
+
+&gpio2 {
+    status = "okay";
+};
+
+&gpio4 {
+    status = "okay";
+};

@@ -1,0 +1,15 @@
+# Zephyr build directory
+build/
+
+# Compiled object files and binaries
+*.o
+*.obj
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.stat
+
+# Local West config (if accidentally generated inside the app)
+.west/

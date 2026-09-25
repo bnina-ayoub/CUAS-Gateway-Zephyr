@@ -1,0 +1,54 @@
+cmake:
+  application:
+    configuration-dir: '/home/bninaos/NXP_Projects/CAN_Node_Project/CAN_Node_Motor_Control'
+    source-dir: '/home/bninaos/NXP_Projects/CAN_Node_Project/CAN_Node_Motor_Control'
+  board:
+    name: 'frdm_mcxa156'
+    path:
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/boards/nxp/frdm_mcxa156'
+    qualifiers: 'mcxa156'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/bindings'
+    files:
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/boards/nxp/frdm_mcxa156/frdm_mcxa156.dts'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/CAN_Node_Motor_Control/boards/frdm_mcxa156.overlay'
+    include-dirs:
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/modules/hal/nxp/dts'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/boards/nxp/frdm_mcxa156/dts'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/include'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/include/zephyr'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/common'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/vendor'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/rx'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/x86'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/xtensa'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/sparc'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/riscv'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/posix'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/arm64'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/arm'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts/arc'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/dts'
+    user-files:
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/CAN_Node_Motor_Control/boards/frdm_mcxa156.overlay'
+  kconfig:
+    files:
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr/boards/nxp/frdm_mcxa156/frdm_mcxa156_defconfig'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/CAN_Node_Motor_Control/prj.conf'
+     - '/home/bninaos/NXP_Projects/CAN_Node_Project/CAN_Node_Motor_Control/can_receiver.conf'
+    user-files:
+     - 'prj.conf'
+     - 'can_receiver.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/bninaos/zephyr-sdk-1.0.1'
+  zephyr:
+    version: '4.4.99'
+    zephyr-base: '/home/bninaos/NXP_Projects/CAN_Node_Project/zephyr'
+version: '0.1.0'
+west:
+  command: '/home/bninaos/zephyrproject/.venv/bin/west build -b frdm_mcxa156 -p always -- -DCONF_FILE=prj.conf;can_receiver.conf'
+  topdir: '/home/bninaos/NXP_Projects/CAN_Node_Project'
+  version: '1.5.0'
